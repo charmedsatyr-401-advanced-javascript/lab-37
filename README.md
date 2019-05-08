@@ -45,14 +45,20 @@
 7 directories, 21 files
 ```
 ### Summary
-The application has been refactored to be fully modular and use the React Context API for functionality. Context wrappers only provide the appropriate context to their children; I intentionally avoided providing global context.
+The application use the React Context API to illustrated to do list and role-based login functionality. 
+
+The `LoginContext` wraps the whole application, while the `ToDoContext` wraps only its component.
+
+In addition to the to do list display, A `Login` component provides a login form, while an a `Auth` module displays the user's roles for testing purposes.
 
 `index.js` renders `<App/>`.
-`<App/>` renders component `<ToDo/>`.
-
-The `<ToDo/>` component is a function component that receives context from its class component context providers `<ToDoProvider/>`.
+`<App/>` renders components `<Login/>`, `<Auth/>`, and `<ToDo/>`. All three receive context from their class component context providers `<LoginProvider/>` or `<ToDoProvider/>`.
 
 `./src/components/todo/` contains all files related to `<Todo/>`. Its `index.js` renders `<Count/>`, `<AddToDo/>`, and `<List/>`. The `<ToDo/>` component uses `<If/>` from `./src/components/if/index.js` for some conditional logic.
+
+`./src/components/auth/` contains all files related to `<Login />` and `<Auth/>`. 
+
+Both to do- and login-related components use `<If/>` from `./src/components/if/index.js` for some conditional logic.
 
 The API server has the following user accounts (`username:password`) that you can use to login as a user with varying permissions:
 * `user:USER` (read)
@@ -68,4 +74,4 @@ The API server has the following user accounts (`username:password`) that you ca
   * Tests could ensure each component properly receives and handles its context.
 
 #### UML
-![UML](assets/uml.jpg)  
+![UML](assets/uml.jpg)
