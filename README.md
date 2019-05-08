@@ -12,8 +12,37 @@
 
 ### Modules
 ```
-##### FILE TREE
+.
+├── assets
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+├── README.md
+├── src
+│   ├── app.js
+│   ├── app.test.js
+│   ├── components
+│   │   ├── auth
+│   │   │   ├── auth.js
+│   │   │   ├── login.js
+│   │   │   └── login-provider.js
+│   │   ├── if
+│   │   │   └── index.js
+│   │   └── todo
+│   │       ├── add-todo.js
+│   │       ├── count.js
+│   │       ├── form.js
+│   │       ├── index.js
+│   │       ├── item.js
+│   │       ├── list.js
+│   │       ├── todo-provider.js
+│   │       └── todo.scss
+│   └── index.js
+└── yarn.lock
 
+7 directories, 21 files
 ```
 ### Summary
 The application has been refactored to be fully modular and use the React Context API for functionality. Context wrappers only provide the appropriate context to their children; I intentionally avoided providing global context.
