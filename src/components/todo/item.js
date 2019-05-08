@@ -5,6 +5,10 @@ import { LoginContext } from '../auth/login-provider';
 import If from '../if';
 import Form from './form';
 
+const UneditableItem = props => (
+  <span onClick={() => alert(`You can't delete!`)}>{props.item.text}</span>
+);
+
 const Item = props => (
   <>
     <LoginContext.Consumer>
@@ -13,7 +17,10 @@ const Item = props => (
           {context => (
             <li className={`complete-${props.item.complete.toString()}`}>
               {/* DELETE */}
-              <If condition={auth.capabilities.includes('delete')}>
+              <If
+                condition={auth.capabilities.includes('delete')}
+                else={<UneditableItem item={props.item} />}
+              >
                 <span onClick={() => context.toggleComplete(props.item.id)}>{props.item.text}</span>
               </If>
 
