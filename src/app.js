@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ToDo from './components/todo';
+import Auth from './components/auth/auth';
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <ToDo />
-      </>
-    );
-  }
-}
+import { LoginContext } from './components/auth/login-provider';
+import Login from './components/auth/login';
+
+const App = () => {
+  return (
+    <LoginContext.Consumer>
+      {context => (
+        <>
+          <Login />
+          <Auth loggedIn={context.loggedIn} capabilities={context.capabilities} />
+          <ToDo loggedIn={context.loggedIn} capabilities={context.capabilities} />
+        </>
+      )}
+    </LoginContext.Consumer>
+  );
+};
 
 export default App;

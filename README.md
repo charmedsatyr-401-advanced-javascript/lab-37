@@ -25,6 +25,11 @@ The `<ToDo/>` component is a function component that receives context from its c
 
 `./src/components/todo/` contains all files related to `<Todo/>`. Its `index.js` renders `<Count/>`, `<AddToDo/>`, and `<List/>`. The `<ToDo/>` component uses `<If/>` from `./src/components/if/index.js` for some conditional logic.
 
+The API server has the following user accounts (`username:password`) that you can use to login as a user with varying permissions:
+* `user:USER` (read)
+* `editor:EDITOR` (create, read, update)
+* `admin:ADMIN` (create, read, update, delete)
+
 #### Tests
 * What assertions were made?
   * A placeholder test is in place.
